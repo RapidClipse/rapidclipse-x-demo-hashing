@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<?xdevuiml version="1.0"?>
+<?template NONE?>
+<?import com.rapidclipse.demo.hashing.ui.MainLayout?>
+<?import com.vaadin.flow.component.accordion.Accordion?>
+<?import com.vaadin.flow.component.accordion.AccordionPanel?>
+<?import com.vaadin.flow.component.button.Button?>
+<?import com.vaadin.flow.component.checkbox.Checkbox?>
+<?import com.vaadin.flow.component.formlayout.FormLayout?>
+<?import com.vaadin.flow.component.formlayout.FormLayout.FormItem?>
+<?import com.vaadin.flow.component.html.Hr?>
+<?import com.vaadin.flow.component.html.Label?>
+<?import com.vaadin.flow.component.orderedlayout.VerticalLayout?>
+<?import com.vaadin.flow.component.radiobutton.RadioButtonGroup?>
+<?import com.vaadin.flow.component.splitlayout.SplitLayout?>
+<?import com.vaadin.flow.component.textfield.TextArea?>
+<?import com.vaadin.flow.router.RouterLink?>
+<?import java.lang.String?>
+<SplitLayout xmlns:x="http://xml.xdev-software.com/xdevuiml" x:name="HashDemoLayout" x:route="hash">
+    <x:constraints zpos="0" width="100%" height="100%" />
+    <VerticalLayout x:name="verticalLayout">
+        <x:constraints splitlayout-position="PRIMARY" width="100%" height="100%" />
+        <RouterLink x:name="routerLink" text="Back" x:navigationTarget="MainLayout">
+            <x:constraints width="0px" height="0px" flex-grow="0.0" />
+        </RouterLink>
+        <Hr x:name="hr">
+            <x:constraints width="100%" height="0px" flex-grow="0.0" />
+        </Hr>
+        <FormLayout x:name="formLayout">
+            <x:constraints width="100%" height="0px" flex-grow="0.0" />
+            <FormItem x:name="formItem">
+                <x:constraints width="0px" height="0px" />
+                <Label x:name="label2" text="Default Charset:">
+                    <x:constraints width="0px" label="true" height="0px" />
+                </Label>
+                <Label x:name="lblDefaultCharset" text="Label">
+                    <x:constraints width="100%" height="0px" />
+                </Label>
+            </FormItem>
+            <FormItem x:name="formItem2">
+                <x:constraints width="0px" height="0px" />
+                <Label x:name="label3" text="Password:">
+                    <x:constraints width="0px" label="true" height="0px" />
+                </Label>
+                <Label x:name="lblPassword" text="Label">
+                    <x:constraints width="100%" height="0px" />
+                </Label>
+            </FormItem>
+        </FormLayout>
+        <Accordion x:name="accordion" x:selectedIndex="3">
+            <x:constraints width="100%" height="-1px" flex-grow="0.0" />
+            <AccordionPanel x:name="accordionPanel" summaryText="RapidClipse HashStrategy (I)">
+                <VerticalLayout x:name="verticalLayout3">
+                    <x:constraints zpos="0" width="100%" height="100%" />
+                    <Label x:name="labelRCIStrategyDesc" text="Charset: default charset">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </Label>
+                    <Label x:name="labelRCIAlgo" text="Algorithm: SHA256">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </Label>
+                    <RadioButtonGroup x:name="optionRCICondense">
+                        <x:typeArguments>
+                            <typeArgument type="String" />
+                        </x:typeArguments>
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </RadioButtonGroup>
+                    <Button x:name="buttonRCIHash" text="show">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                        <x:event>click.onComponentEvent</x:event>
+                    </Button>
+                    <Label x:name="labelRCIDesc" text="Hash with the HashStrategy from the AuthenticationProvider.">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </Label>
+                </VerticalLayout>
+            </AccordionPanel>
+            <AccordionPanel x:name="accordionPanel2" summaryText="RapidClipse HashStrategy (II)">
+                <VerticalLayout x:name="verticalLayout4">
+                    <x:constraints zpos="0" width="100%" height="100%" />
+                    <Label x:name="labelRCIStrategyDesc2" text="Charset: default charset">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </Label>
+                    <Label x:name="labelRCIAlgo2" text="Algorithm: SHA256">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </Label>
+                    <RadioButtonGroup x:name="optionRCIICondense">
+                        <x:typeArguments>
+                            <typeArgument type="String" />
+                        </x:typeArguments>
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </RadioButtonGroup>
+                    <Button x:name="buttonRCII" text="show">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                        <x:event>click.onComponentEvent</x:event>
+                    </Button>
+                    <Label x:name="labelRCIIdesc" text="Hash with a new HashStrategy">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </Label>
+                </VerticalLayout>
+            </AccordionPanel>
+            <AccordionPanel x:name="accordionPanel3" summaryText="MessageDigest">
+                <VerticalLayout x:name="verticalLayout5">
+                    <x:constraints zpos="0" width="100%" height="100%" />
+                    <Label x:name="labelRCIStrategyDesc3" text="Charset: default charset">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </Label>
+                    <Label x:name="labelRCIAlgo3" text="Algorithm: SHA256">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </Label>
+                    <RadioButtonGroup x:name="optionMDCondense">
+                        <x:typeArguments>
+                            <typeArgument type="String" />
+                        </x:typeArguments>
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </RadioButtonGroup>
+                    <Button x:name="buttonMD" text="show">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                        <x:event>click.onComponentEvent</x:event>
+                    </Button>
+                    <Label x:name="labelMDdesc" text="Hash a password with a new MessageDigest object">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </Label>
+                </VerticalLayout>
+            </AccordionPanel>
+            <AccordionPanel x:name="accordionPanel4" summaryText=" Shiro framework">
+                <x:constraints width="100px" height="100px" />
+                <VerticalLayout x:name="verticalLayout6">
+                    <x:constraints zpos="0" width="100%" height="100%" />
+                    <Label x:name="labelRCIStrategyDesc4" text="Charset: default charset">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </Label>
+                    <Label x:name="labelRCIAlgo4" text="Algorithm: SHA256">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </Label>
+                    <Checkbox x:name="chkSalt" label="with salt">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </Checkbox>
+                    <Button x:name="buttonShiro" text="show">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                        <x:event>click.onComponentEvent</x:event>
+                    </Button>
+                    <Label x:name="labelShiroDesc" text="With SHA256 class">
+                        <x:constraints width="0px" height="0px" flex-grow="0.0" />
+                    </Label>
+                </VerticalLayout>
+            </AccordionPanel>
+        </Accordion>
+    </VerticalLayout>
+    <VerticalLayout x:name="verticalLayout2">
+        <x:constraints splitlayout-position="SECONDARY" width="100%" height="100%" />
+        <TextArea x:name="textArea">
+            <x:constraints width="100%" height="100%" flex-grow="0.0" />
+        </TextArea>
+    </VerticalLayout>
+</SplitLayout>
+

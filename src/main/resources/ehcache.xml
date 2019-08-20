@@ -1,0 +1,62 @@
+<config xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xmlns='http://www.ehcache.org/v3'
+	xmlns:jsr107='http://www.ehcache.org/v3/jsr107'
+	xsi:schemaLocation="
+        http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.5.xsd
+        http://www.ehcache.org/v3/jsr107 http://www.ehcache.org/schema/ehcache-107-ext-3.5.xsd">
+
+	<service>
+		<jsr107:defaults enable-management="true"
+			enable-statistics="true" default-template="defaultCacheTemplate" />
+	</service>
+
+	<cache-template name="defaultCacheTemplate">
+		<expiry>
+			<!-- time to idle, the maximum time for an entry to remain untouched Entries 
+				to the Cache can be made to expire after a given time other options are: 
+				* <ttl>, time to live; 
+				* <class>, for a custom Expiry implementation; or 
+				* <none>, for no expiry -->
+			<!-- <tti unit="minutes">10</tti> -->
+			<!-- <tti unit="seconds">10</tti> -->
+			<!-- <ttl unit="seconds">1200</ttl> -->
+			<none />
+		</expiry>
+		<resources>
+			<!-- Maximum entries in memory -->
+			<heap unit="entries">100000</heap>
+			<!-- Maximum size in memory -->
+			<!-- <heap unit="MB">10000</heap> -->
+		</resources>
+	</cache-template>
+
+	<cache alias="org.hibernate.cache.spi.QueryResultsRegion">
+		<expiry>
+			<!-- time to idle, the maximum time for an entry to remain untouched Entries 
+				to the Cache can be made to expire after a given time other options are: 
+				* <ttl>, time to live; 
+				* <class>, for a custom Expiry implementation; or 
+				* <none>, for no expiry -->
+			<!-- <tti unit="minutes">10</tti> -->
+			<!-- <tti unit="seconds">10</tti> -->
+			<!-- <ttl unit="seconds">1200</ttl> -->
+			<none />
+		</expiry>
+		<resources>
+			<!-- Maximum entries in memory -->
+			<heap unit="entries">100000</heap>
+			<!-- Maximum size in memory -->
+			<!-- <heap unit="MB">10000</heap> -->
+		</resources>
+	</cache>
+
+	<!-- Because of this line the TimestampsRegionCache inherits its preferences 
+		from the defaultCacheTemplate. If it is necessary to define different preferences 
+		remove this line and use it like the lines above -->
+	<cache alias="org.hibernate.cache.spi.TimestampsRegion"
+		uses-template="defaultCacheTemplate" />
+
+	<cache alias="com.rapidclipse.demo.hashing.domain.User"
+		uses-template="defaultCacheTemplate">
+	</cache>
+</config>
